@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tonerville - Outsourcing de Impressão Profissional</title>
+  <meta name="description" content="Tonerville - Outsourcing de impressão, venda de toners e manutenção de impressoras. Funcionamento: Segunda a Sexta das 08:00 às 18h." />
+  <link type="image/png" rel="icon" href="./icon/favicon.ico">
+  <!-- Font Awesome e Google Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <!-- Usando somente a fonte Inter para todo o site -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
+  <!-- Swiper CSS para carrossel de marcas -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <header id="header">
+    <div class="nav-container">
+      <a href="#home" class="logo">
+        <img src="logo-tonerville.png" alt="Tonerville" />
+      </a>
+      <nav class="nav-links">
+        <a href="#servicos">Serviços</a>
+        <a href="#numeros">Números</a>
+        <a href="#economia">Economia e Diferenciais</a>
+        <a href="#historia">História</a>
+        <a href="#depoimentos">Depoimentos</a>
+        <a href="#contato">Contato</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Abrir Menu" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+      <nav class="mobile-nav" aria-label="Menu Mobile">
+        <ul>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#numeros">Números</a></li>
+          <li><a href="#economia">Economia e Diferenciais</a></li>
+          <li><a href="#historia">História</a></li>
+          <li><a href="#depoimentos">Depoimentos</a></li>
+          
+          
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Conteúdo Principal -->
+  <main>
+    <!-- Hero -->
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <h1>Soluções Completas em Outsourcing de Impressão</h1>
+        <p>Tecnologia de ponta e expertise para otimização de processos gráficos</p>
+        <a href="#contato" class="cta-button">Solicitar Diagnóstico Gratuito</a>
+      </div>
+    </section>
+
+    <!-- Serviços -->
+    <section class="services-section" id="servicos">
+      <h2 class="section-title">Nossos Serviços</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <i class="fas fa-print fa-3x" style="color: var(--secondary-color);"></i>
+          <h3>Outsourcing de Impressão</h3>
+          <p>Analise e venda de equipamentos compativeis com a sua demanda e necessidade.</p>
+        </div>
+        <div class="service-card">
+          <i class="fas fa-box-open fa-3x" style="color: var(--secondary-color);"></i>
+          <h3>Venda de Insumos Para Impressao</h3>
+          <p>Tinta, Toners e Papeis. <br> Todos produtos da mais alta qualidade e preços competitivos para todos os modelos.</p>
+        </div>
+        <div class="service-card">
+          <i class="fas fa-tools fa-3x" style="color: var(--secondary-color);"></i>
+          <h3>Manutenção de Impressoras</h3>
+          <p>Serviço especializado para manter suas impressoras sempre operacionais.</p>
+        </div>
+        </div>
+      </div>
+      
+    </section>
+    <!-- Números -->
+    <section class="counters-section" id="numeros">
+      <h2 class="section-title">Nossos Números</h2>
+      <div class="counters-container">
+        <div class="counter">
+          <h3 data-target="30">0</h3>
+          <p>+30 Anos de Experiência</p>
+        </div>
+        <div class="counter">
+          <h3 data-target="250">0</h3>
+          <p>+250 Clientes Atendidos</p>
+        </div>
+        <div class="counter">
+          <h3 data-target="15">0</h3>
+          <p>+15 Cidades Atendidas</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Economia e Diferenciais -->
+    <section id="economia" class="economia-section">
+        <div class="eco-container">
+          <!-- Coluna da Calculadora (discreta no canto inferior direito em telas maiores) -->
+          <div class="eco-calculator">
+            <h2 class="calc-heading">Economia Estimada</h2>
+            <div class="calc-widget">
+              <label for="eco-pages">Páginas impressas por mês:</label>
+              <input type="number" id="eco-pages" placeholder="Ex: 1000" />
+              <button id="eco-btn-calc">Calcular</button>
+              <div id="eco-calc-result" class="calc-result"></div>
+              <p class="calc-note">Estimativa de economia </p>
+            </div>
+          </div>
+        <!-- Vantagens em Cards animados em cascata -->
+        <div class="eco-benefits">
+            <h2 class="benefits-heading">Por que terceirizar sua impressão?</h2>
+            <div class="benefits-list">
+              <div class="benefit-card">Reduza despesas iniciais e evite altos investimentos</div>
+              <div class="benefit-card">Desfrute de manutenção preventiva e suporte especializado</div>
+              <div class="benefit-card">Otimize o uso de suprimentos e minimize desperdícios</div>
+              <div class="benefit-card">Pague apenas pelo consumo real com monitoramento integrado</div>
+              <div class="benefit-card">Acesse equipamentos modernos com garantia e tecnologia avançada</div>
+              <div class="benefit-card">Conte com uma equipe técnica altamente qualificada</div>
+        </div>
+      </div>
+    </section>
+    <!-- Marcas Parceiras -->
+   <!-- Seção Parceiros -->
+<section class="partners-section">
+  <div class="partners-container">
+    <div class="partners-header">
+      <span class="partners-title">PARCEIROS</span>
+      <div class="partners-line">
+      </div>
+    </div>
+    <div class="swiper-container swiper-partners">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="./images/brother.png" alt="Brother" class="brand-logo" />
+        </div>
+        <div class="swiper-slide">
+          <img src="./images/canon.png" alt="Canon" class="brand-logo" />
+        </div>
+        <div class="swiper-slide">
+          <img src="./images/epson.png" alt="Epson" class="brand-logo" />
+        </div>
+        <div class="swiper-slide">
+          <img src="./images/hp.png" alt="Hp" class="brand-logo" />
+        </div>
+        <div class="swiper-slide">
+          <img src="./images/samsung.png" alt="Samsung" class="brand-logo" />
+        </div>
+        <div class="swiper-slide">
+          <img src="./images/xerox.png" alt="Xerox" class="brand-logo" />
+        </div>
+      </div>
+  </div>
+</section>
+    
+    <!-- História -->
+    <!-- Seção Nossa História com Layout Profissional -->
+    <section class="history-section" id="historia">
+      <h2 class="section-title">Nossa História</h2>
+      <div class="history-content">
+        <div class="history-text">
+          <p>
+            Fundada há mais de 30 anos, a Tonerville nasceu com o propósito de oferecer soluções inovadoras em gestão de impressão,
+            transformando a forma como as empresas lidam com seus processos gráficos. Nossa trajetória é marcada pela evolução contínua,
+            investindo em tecnologia e em uma equipe altamente qualificada para garantir eficiência e economia aos nossos clientes.
+          </p>
+          <p>
+            Venha conhecer nossa história e descubra como podemos transformar sua empresa!
+          </p>
+        </div>
+      <div class="history-image">
+          <img src="./images/empresa-antiga.png" alt="Imagem principal da empresa">
+        </div>
+        
+      </div>
+    </section>
+     <!-- Depoimentos -->
+    <!-- Seção de Depoimentos com Carrossel -->
+    <section class="testimonials-section" id="depoimentos">
+      <div class="container">
+        <h2 class="section-title">Depoimentos</h2>
+        <div class="swiper-container swiper-testimonials">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="testimonial-card">
+                <p>"A Tonerville transformou nossa gestão de impressão, gerando economia e qualidade excepcionais."</p>
+                <h4>Mariana S.</h4>
+                <span>Gerente de TI</span>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="testimonial-card">
+                <p>"Profissionalismo e comprometimento. Recomendo para quem busca eficiência e redução de custos."</p>
+                <h4>Carlos M.</h4>
+                <span>Diretor Financeiro</span>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="testimonial-card">
+                <p>"Nossa produtividade melhorou significativamente com o suporte especializado da Tonerville."</p>
+                <h4>Ana P.</h4>
+                <span>Coordenadora Administrativa</span>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="testimonial-card">
+                <p>"Nossa produtividade melhorou significativamente com o suporte especializado da Tonerville."</p>
+                <h4>Ana P.</h4>
+                <span>Coordenadora Administrativa</span>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="testimonial-card">
+                <p>"Nossa produtividade melhorou significativamente com o suporte especializado da Tonerville."</p>
+                <h4>Ana P.</h4>
+                <span>Coordenadora Administrativa</span>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="testimonial-card">
+                <p>"Nossa produtividade melhorou significativamente com o suporte especializado da Tonerville."</p>
+                <h4>Ana P.</h4>
+                <span>Coordenadora Administrativa</span>
+              </div>
+            </div>
+          </div>
+          <!-- Paginação opcional -->
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Contato -->
+    <section class="contact-section" id="contato">
+      <div class="contact-form">
+        <h2>Fale Conosco</h2>
+        <form id="contactForm">
+          <div class="form-group">
+            <label for="nome">Nome Completo</label>
+            <input type="text" id="nome" placeholder="Nome Completo" required />
+          </div>
+          <div class="form-group">
+            <label for="email">E-mail Corporativo</label>
+            <input type="email" id="email" placeholder="E-mail Corporativo" required />
+          </div>
+          <div class="form-group">
+            <label for="telefone">Telefone</label>
+            <input type="tel" id="telefone" placeholder="Telefone" required />
+          </div>
+          <div class="form-group">
+            <label for="mensagem">Como podemos ajudar?</label>
+            <textarea id="mensagem" rows="5" placeholder="Como podemos ajudar?" required></textarea>
+          </div>
+          <button type="submit" class="cta-button">Enviar Mensagem</button>
+        </form>
+      </div>
+    </section>
+  </main>
+   
+
+  <!-- Mapa de Localização -->
+  <section class="map-section">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3703.24123456789!2d-48.859!3d-26.304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94deaf8e5dbe32b1%3A0x4f3cd8d724e8e03f!2sR.%20Ottokar%20Doerffel%2C%201112%20-%20Anita%20Garibaldi%2C%20Joinville%20-%20SC%2C%2089203-307!5e0!3m2!1spt-BR!2sbr!4v1678901234567" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-info">
+        <h3><strong>Tonerville Manutencao e Instalacao de Equipamentos Ltda</strong></h3>
+        <p>CNPJ: 00.062.038/0001-99</p>
+        <p>R. Ottokar Doerffel, 1112 - Anita Garibaldi</p>
+        <p>Joinville - SC, 89203-307</p>
+        <p>Telefone: (47) 3404-1234</p>
+        <p>Email: contato@tonerville.com.br</p>
+        <p>Funcionamento: Segunda a Sexta das 08:00 às 18h</p>
+      </div>
+      <div class="footer-map">
+        <h3>Localização</h3>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3703.24123456789!2d-48.859!3d-26.304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94deaf8e5dbe32b1%3A0x4f3cd8d724e8e03f!2sR.%20Ottokar%20Doerffel%2C%201112%20-%20Anita%20Garibaldi%2C%20Joinville%20-%20SC%2C%2089203-307!5e0!3m2!1spt-BR!2sbr!4v1678901234567" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+      <div class="footer-social">
+        <h3>Redes Sociais</h3>
+        <a href="#"><i class="fab fa-facebook fa-2x"></i></a>
+        <a href="#"><i class="fab fa-instagram fa-2x"></i></a>
+        <a href="#"><i class="fab fa-linkedin fa-2x"></i></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 Tonerville. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- WhatsApp -->
+  <a href="https://wa.me/554734041234" class="whatsapp-float" target="_blank" aria-label="Contato via WhatsApp">
+    <i class="fab fa-whatsapp fa-2x"></i>
+  </a>
+
+  <!-- Swiper JS -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script src="./script.js"> </script>
+</body>
+</html>
