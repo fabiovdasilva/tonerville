@@ -84,36 +84,72 @@
     width: 100%;
   }
   /* Menu Mobile */
-  .menu-toggle {
-    background: none;
-    border: none;
-    color: var(--dark-gray);
-    cursor: pointer;
-    display: none;
-    font-size: 1.5rem;
-  }
-  .mobile-nav {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background: rgba(255,255,255,0.98);
-    border-top: 1px solid rgba(45,45,45,0.1);
-  }
-  .mobile-nav ul {
-    list-style: none;
-    padding: 1rem;
-    margin: 0;
-  }
-  .mobile-nav ul li {
-    margin-bottom: 1rem;
-  }
-  .mobile-nav ul li a {
-    text-decoration: none;
-    color: var(--dark-gray);
-    font-weight: 500;
-  }
+  /* Menu Mobile */
+.menu-toggle {
+  background: none;
+  border: none;
+  color: var(--dark-gray);
+  cursor: pointer;
+  display: none;
+  font-size: 1.5rem;
+  transition: transform 0.3s ease; /* Adicione se quiser animar o botão */
+}
+.menu-toggle.active {
+  transform: rotate(90deg);
+}
+
+.mobile-nav {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: rgba(255,255,255,0.98);
+  border-top: 1px solid rgba(45,45,45,0.1);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+}
+
+.mobile-nav.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Mantenha o restante do seu CSS original */
+.mobile-nav ul {
+  list-style: none;
+  padding: 1rem;
+  margin: 0;
+}
+
+.mobile-nav ul li {
+  margin-bottom: 1rem;
+}
+
+.mobile-nav ul li a {
+  text-decoration: none;
+  color: var(--dark-gray);
+  font-weight: 500;
+}
+
+.mobile-nav a:hover {
+  color: var(--primary-color);
+}
+.mobile-nav a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  margin-top: 22px;
+  left: 0;
+  background: var(--secondary-color);
+  transition: var(--transition);
+}
+.mobile-nav a:hover::after {
+  width: 25%;
+}
   /* Títulos: agora todos em Inter */
   .section-title {
     font-size: 2.5rem;
@@ -734,6 +770,9 @@
  /* MOBILE OVERRIDES */
 /* MOBILE OVERRIDES */
 @media (max-width: 768px) {
+  html, body {
+    overflow-x: hidden;
+  }
   /* Navbar: mostra o menu toggle e esconde os links desktop */
   .nav-container {
     padding: 0 1rem;
@@ -789,6 +828,8 @@
   .eco-benefits {
     width: 100%;
     flex-direction: column;
+    align-items: center;
+    padding: 0;
   }
   .benefits-list {
     grid-template-columns: 1fr;

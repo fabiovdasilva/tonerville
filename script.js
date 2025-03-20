@@ -9,12 +9,8 @@ window.addEventListener('scroll', () => {
 });
 
 /* Toggle do Menu Mobile */
-const menuToggle = document.querySelector('.menu-toggle');
-const mobileNav = document.querySelector('.mobile-nav');
-menuToggle.addEventListener('click', () => {
-  const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-  menuToggle.setAttribute('aria-expanded', !isExpanded);
-  mobileNav.style.display = isExpanded ? 'none' : 'block';
+document.querySelector('.menu-toggle').addEventListener('click', function() {
+  document.querySelector('.mobile-nav').classList.toggle('active');
 });
 
 /* Smooth Scroll */
