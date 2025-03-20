@@ -374,7 +374,72 @@
     gap: 2rem;
     align-items: flex-start;
     flex-wrap: wrap;
+    flex-direction: row-reverse;
+    align-items: center;
   }
+  .card {
+    background: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 400px; /* Ajuste conforme desejar */
+    padding: 2rem;
+    text-align: left;
+    margin: 1rem;
+  }
+
+  .card-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    color: #333;
+  }
+
+  .pros-list, .cons-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .pros-list li, .cons-list li {
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    color: #555;
+  }
+
+  .icon {
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 0.5rem;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .check-icon {
+    background: #e3fcef;
+    color: #28a745; /* Verde */
+  }
+
+  .x-icon {
+    background: #fde8e8;
+    color: #dc3545; /* Vermelho */
+  }
+
+  /* Card de Prós (exemplo de cor de destaque) */
+  .do-card {
+    border-left: 6px solid #28a745;
+  }
+
+  /* Card de Contras (exemplo de cor de destaque) */
+  .dont-card {
+    border-left: 6px solid #dc3545;
+  }
+
   /* Calculadora: pequena, posicionada no canto (em telas grandes) */
   .eco-calculator {
     flex: 1 1 300px;
@@ -384,6 +449,7 @@
     padding: 1.5rem;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     position: relative;
+    max-width: 25%;
   }
   .eco-calculator .calc-heading {
     font-size: 1.75rem;
@@ -433,10 +499,10 @@
   /* Benefícios */
   .eco-benefits {
     flex: 2 1 600px;
-    background: #ffffff;
     padding: 2rem;
     border-radius: 10px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: row;
   }
   .eco-benefits .benefits-heading {
     font-size: 2rem;
