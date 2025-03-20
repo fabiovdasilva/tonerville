@@ -791,7 +791,7 @@
 
   /* Hero Section: reduz o tamanho e o espaçamento */
   .hero {
-    padding: 100px 1rem 60px;
+    padding: 200px 1rem 60px;
     min-height: 60vh;
   }
   .hero h1 {
