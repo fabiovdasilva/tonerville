@@ -731,31 +731,95 @@
     z-index: 1000;
     transition: var(--transition);
   }
-  @media (max-width: 768px) {
-    .nav-links {
-      display: none;
-    }
-    .menu-toggle {
-      display: block;
-    }
-    .eco-container {
-        flex-direction: column;
-        position: relative;
-      }
-    .eco-calculator {
-        position: static;
-        width: 100%;
-        margin-bottom: 1rem;
-    }
-    .history-content {
-      flex-direction: column;
-      text-align: center;
-    }
-    .history-text {
-      padding-right: 0;
-      margin-bottom: 1.5rem;
-    }
-    .history-image {
-      text-align: center;
-    }
+ /* MOBILE OVERRIDES */
+/* MOBILE OVERRIDES */
+@media (max-width: 768px) {
+  /* Navbar: mostra o menu toggle e esconde os links desktop */
+  .nav-container {
+    padding: 0 1rem;
   }
+  .nav-links {
+    display: none;
+  }
+  .menu-toggle {
+    display: block;
+  }
+
+  /* Seções: reduza o padding para um layout mais compacto */
+  section {
+    padding: 1.5rem 0;
+  }
+
+  /* Hero Section: reduz o tamanho e o espaçamento */
+  .hero {
+    padding: 100px 1rem 60px;
+    min-height: 60vh;
+  }
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  .cta-button {
+    font-size: 1rem;
+    padding: 0.75rem 1.25rem;
+  }
+
+  /* Serviços: empilha os cards verticalmente e ajusta o formato para ser quadrado */
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .service-card {
+    width: 90%;
+    margin: 0 auto;
+    /* Usando aspect-ratio para manter formato quadrado */
+    aspect-ratio: 1 / 1;
+  }
+
+  /* Economia e Diferenciais: as colunas se empilham */
+  .eco-container {
+    flex-direction: column;
+    position: relative;
+  }
+  .eco-calculator {
+    position: static;
+    width: 100%;
+    margin-bottom: 1rem;
+    max-width: 100%;
+  }
+  .eco-benefits {
+    width: 100%;
+    flex-direction: column;
+  }
+  .benefits-list {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  /* História: empilha o texto e a imagem */
+  .history-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .history-text {
+    padding-right: 0;
+    margin-bottom: 1.5rem;
+  }
+  .history-image {
+    text-align: center;
+  }
+
+  /* Depoimentos: ajusta o tamanho dos slides */
+  .swiper-slide {
+    width: 250px;
+    height: 250px;
+  }
+
+  /* Parceiros: ajuste no container para ocupar toda a largura */
+  .partners-container {
+    padding: 0 1rem;
+  }
+  .swiper-container.swiper-partners {
+    height: auto;
+  }
+
+}
