@@ -757,124 +757,460 @@
   }
   /* WhatsApp */
   .whatsapp-float {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background: #25D366;
-    color: white;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    z-index: 1000;
-    transition: var(--transition);
+  position: fixed;
+  bottom: 20px;
+  left: 80%;
+  transform: translateX(-50%);
+  background: #25D366;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  width: max-content;
+  z-index: 999;
+  transition: all 0.3s ease;
   }
- /* MOBILE OVERRIDES */
-/* MOBILE OVERRIDES */
+
+  /* Efeito hover */
+.whatsapp-float:hover {
+  background: #128C7E;
+  transform: translateX(-50%) scale(1.05);
+}
+
+ /* MOBILE OVERRIDES (max-width: 768px) */
 @media (max-width: 768px) {
-  html, body {
-    overflow-x: hidden;
+  html,
+  body {
+    overflow-x: hidden !important;
+    font-size: 14px;
+    
   }
-  /* Navbar: mostra o menu toggle e esconde os links desktop */
+
+  /* Header */
   .nav-container {
     padding: 0 1rem;
   }
+
+   /* Ajuste do header scrolled */
+   header.scrolled .mobile-nav.active {
+    top: 70px;
+  }
+
+  .logo img {
+    max-width: 180px;
+  }
+
+  header.scrolled .logo img {
+    max-width: 120px;
+  }
+
   .nav-links {
     display: none;
   }
-  .menu-toggle {
-    display: block;
-  }
 
-  /* Seções: reduza o padding para um layout mais compacto */
+  .menu-toggle {
+    padding: 10px;
+    z-index: 1001;
+  }
+  .menu-toggle span {
+    background: var(--dark-gray);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  .menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  .menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+  /* Seções */
   section {
     padding: 1.5rem 0;
+    scroll-margin-top: 80px;
   }
 
-  /* Hero Section: reduz o tamanho e o espaçamento */
+  .section-title {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .section-title::after {
+    display: none !important; /* Remove o símbolo ◈ */
+  }
+
+  /* Hero Section */
   .hero {
-    padding: 200px 1rem 60px;
-    min-height: 60vh;
+    padding: 120px 1rem 60px;
+    min-height: 70vh;
   }
+
   .hero h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
+    line-height: 1.3;
   }
-  .cta-button {
-    font-size: 1rem;
-    padding: 0.75rem 1.25rem;
-  }
-  .brand-logo {
-    max-width: 100px;  /* Ajuste conforme desejar */
-  }
-  
 
-  /* Serviços: empilha os cards verticalmente e ajusta o formato para ser quadrado */
+  /* Serviços */
   .services-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-  .service-card {
-    width: 90%;
-    margin: 0 auto;
-    /* Usando aspect-ratio para manter formato quadrado */
-    aspect-ratio: 1 / 1;
-  }
-
-  /* Economia e Diferenciais: as colunas se empilham */
-  .eco-container {
-    flex-direction: column;
-    position: relative;
-  }
-  .eco-calculator {
-    position: static;
-    width: 100%;
-    margin-bottom: 1rem;
-    max-width: 100%;
-  }
-  .eco-benefits {
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
-    padding: 0;
-  }
-  .benefits-list {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
   }
 
-  /* História: empilha o texto e a imagem */
+  .service-card:nth-child(3) {
+    grid-column: span 2;
+    width: calc(50% - 0.5rem);
+    margin: 0 auto;
+  }
+
+  .service-card {
+    padding: 1.5rem;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  /* História */
   .history-content {
+    flex-direction: column;
+    padding: 0 1rem;
+  }
+
+  .history-text {
+    padding-right: 0;
+    margin-bottom: 2rem;
+  }
+
+  .history-text h2 {
+    font-size: 1.8rem;
+  }
+
+  /* Depoimentos */
+  .testimonials-section .container {
+    padding: 0 1rem;
+  }
+
+  .swiper-slide {
+    width: 85%;
+    height: auto;
+    padding: 1rem;
+  }
+
+  /* Economia - Novo Layout */
+  .eco-container {
+    flex-direction: column;
+    padding: 0 1rem;
+  }
+
+  .eco-benefits {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.8rem;
+    width: 100%;
+  }
+  
+  .benefits-list {
+    display: grid;
+    grid-template-columns: 1fr !important; /* Força 1 coluna */
+    gap: 1rem;
+  }
+
+  .card{
+    padding: 0.5rem;
+    margin: 0;
+  }
+
+  .card-title {
+    text-align: center;
+  }
+
+  .eco-benefits {
+    flex: auto;
+    padding: 0;
+  }
+
+  .benefit-card {
+    width: 100% !important;
+    max-width: 100%;
+    padding: 1.2rem !important;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    word-break: break-word; /* Quebra de texto seguro */
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+
+  .benefit-card h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .benefit-card p {
+    font-size: 0.8rem;
+    margin-bottom: 0;
+  }
+
+  .eco-calculator {
+    width: 100%;
+    max-width: 100%;
+    margin-top: 1rem;
+    padding: 1.5rem;
+    flex: auto;
+  }
+
+  /* Contadores - Layout 2x1 */
+  .counters-container {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .counter {
+    flex: 1 1 40%;
+    margin: 0 5%;
+  }
+
+  .counter:last-child {
+    grid-column: span 2;
+    width: 60%;
+    margin: 1rem auto 0;
+    text-align: center;
+  }
+
+  .counter h3 {
+    font-size: 2rem;
+  }
+
+  /* Parceiros */
+  .partners-section {
+    padding: 0.5rem 0;
+  }
+
+  .partner-logo {
+    max-width: 70px;
+  }
+
+  #hp {
+    max-width: 50px !important; /* Logo HP menor */
+  }
+
+  /* Contato */
+  .contact-form {
+    padding: 2rem 1rem;
+    margin: 0 1rem;
+  }
+
+  /* Footer */
+  .footer-container {
     flex-direction: column;
     text-align: center;
   }
-  .history-text {
-    padding-right: 0;
-    margin-bottom: 1.5rem;
-  }
-  .history-image {
-    text-align: center;
+
+  .footer-info,
+  .footer-map,
+  .footer-social {
+    flex: 1 1 100%;
   }
 
-  /* Depoimentos: ajusta o tamanho dos slides */
-  .swiper-slide {
-    width: 250px;
-    height: 250px;
+  /* WhatsApp */
+  .whatsapp-float {
+    left: 50% !important;
+    bottom: 10px;
+    padding: 8px 16px;
+    transform: translateX(-50%) scale(0.9);
+    width: 90%;
+    max-width: 280px;
+    justify-content: center;
   }
 
-  /* Cards de Parceiros Menores */
-  .swiper-partners .swiper-slide {
-    height: 2rem !important;
+  .whatsapp-float:hover {
+    transform: translateX(-50%) scale(0.95);
   }
 
-  /* Parceiros: ajuste no container para ocupar toda a largura */
-  .partners-container {
-    padding: 0 1rem;
-  }
-  .swiper-container.swiper-partners {
-    height: auto;
-  }
-
+  /* Menu Hamburguer Animado */
+.menu-toggle {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  z-index: 1001;
+  transition: all 0.3s ease;
 }
+
+.menu-toggle span {
+  width: 25px;
+  height: 2px;
+  background: var(--dark-gray);
+  transition: all 0.3s ease;
+}
+
+.menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.mobile-nav {
+  position: fixed;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  background: rgba(255,255,255,0.98);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 1rem 0;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.mobile-nav.active {
+  top: 100%; /* Ajustado para acompanhar header */
+}
+
+.mobile-nav ul li {
+  padding: 1rem 2rem;
+  text-align: left;
+}
+
+.mobile-nav ul li a {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.mobile-nav ul li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background: var(--secondary-color);
+  transition: var(--transition);
+}
+
+.mobile-nav ul li a:hover::after {
+  width: 100%;
+}
+
+
+ /* Seção Economia */
+ .eco-container {
+  flex-direction: column;
+}
+
+.eco-benefits {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.benefit-card {
+  flex: 1 1 48%;
+  max-width: 48%;
+}
+
+.eco-calculator {
+  width: 100%;
+  max-width: 100%;
+  order: 2;
+}
+
+/* Counters Section */
+.counters-container {
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.counter {
+  flex: 1 1 45%;
+  margin: 0;
+}
+
+.counter:last-child {
+  flex-basis: 100%;
+  margin-top: 2rem;
+}
+
+  /* Ajustes específicos para telas pequenas */
+  @media (max-width: 480px) {
+    .hero h1 {
+      font-size: 1.8rem;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+    }
+
+    .service-card,
+    .benefit-card {
+      padding: 1rem;
+    }
+
+    .eco-calculator {
+      padding: 1rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      padding: 0.8rem;
+    }
+
+    .whatsapp-float {
+      font-size: 12px;
+      padding: 6px 12px;
+    }
+
+    .benefits-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.8rem;
+    }
+
+    .benefit-card {
+      font-size: 0.8rem;
+      padding: 0.8rem !important;
+    }
+
+    .counter {
+      flex-basis: 100%;
+      margin: 0;
+    }
+
+    .counter:last-child {
+      flex-basis: 100%;
+      margin-top: 1rem;
+    }
+  }
+
+  /* Garante overflow hidden em elementos específicos */
+  .nav-container,
+  .hero,
+  .services-grid,
+  .history-content {
+    overflow-x: hidden;
+  }
+}
+
+/* Ajuste para telas muito pequenas */
+@media (max-width: 360px) {
+  .benefit-card, .counter {
+    font-size: 0.8rem;
+    padding: 0.8rem !important;
+  }
+  
+  .benefit-card h3 {
+    font-size: 0.9rem;
+  }
+  .counter h3 {
+    font-size: 1.8rem !important;
+  }
+}
+

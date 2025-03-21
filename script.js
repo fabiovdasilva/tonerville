@@ -8,11 +8,6 @@ window.addEventListener('scroll', () => {
   }
 });
 
-/* Toggle do Menu Mobile */
-document.querySelector('.menu-toggle').addEventListener('click', function() {
-  document.querySelector('.mobile-nav').classList.toggle('active');
-});
-
 /* Smooth Scroll */
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function(e) {
@@ -159,16 +154,39 @@ var swiperTestimonials = new Swiper('.swiper-testimonials', {
   },
 });
 
-// Fechar menu ao clicar fora
-document.addEventListener('click', function(event) {
-  const mobileNav = document.querySelector('.mobile-nav');
+document.addEventListener('DOMContentLoaded', function() {
   const menuToggle = document.querySelector('.menu-toggle');
-  
-  if (!event.target.closest('.mobile-nav') && 
-      !event.target.closest('.menu-toggle') &&
-      mobileNav.classList.contains('active')) {
-    mobileNav.classList.remove('active');
+  const mobileNav = document.querySelector('.mobile-nav');
+  const header = document.querySelector('header');
+
+  // Animação do menu
+  menuToggle.addEventListener('click', function(e) {
+    e.stopPropagation();
+    this.classList.toggle('active');
+    mobileNav.classList.toggle('active');
+    
+    // Ajuste da posição considerando header scrolled
+    const headerHeight = header.offsetHeight;
+    mobileNav.style.top = headerHeight + 'px';
+  });
+
+  // Fechar ao clicar fora
+  document.addEventListener('click', function(e) {
+    if (!menuToggle.contains(e.target) && !mobileNav.contains(e.target)) {
+      menuToggle.classList.remove('active');
+      mobileNav.classList.remove('active');
+    }
+  });
+
+  // Fechar ao rolar
+  window.addEventListener('scroll', function() {
     menuToggle.classList.remove('active');
-    menuToggle.setAttribute('aria-expanded', 'false');
-  }
+    mobileNav.classList.remove('active');
+  });
+
+  // Ajustar posição do menu quando header muda tamanho
+  window.addEventListener('resize', function() {
+    const headerHeight = header.offsetHeight;
+    mobileNav.style.top = headerHeight + 'px';
+  });
 });
