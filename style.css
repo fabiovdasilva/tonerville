@@ -14,6 +14,11 @@
     box-sizing: border-box;
     font-family: 'Inter', sans-serif;
   }
+
+  html, body {
+    overflow-x: hidden;
+  }
+  
   body {
     line-height: 1.6;
     color: var(--dark-gray);
@@ -801,6 +806,10 @@
     font-size: 1rem;
     padding: 0.75rem 1.25rem;
   }
+  .brand-logo {
+    max-width: 100px;  /* Ajuste conforme desejar */
+  }
+  
 
   /* Serviços: empilha os cards verticalmente e ajusta o formato para ser quadrado */
   .services-grid {
@@ -853,6 +862,11 @@
   .swiper-slide {
     width: 250px;
     height: 250px;
+  }
+
+  /* Cards de Parceiros Menores */
+  .swiper-partners .swiper-slide {
+    height: 2rem !important;
   }
 
   /* Parceiros: ajuste no container para ocupar toda a largura */

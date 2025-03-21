@@ -158,3 +158,17 @@ var swiperTestimonials = new Swiper('.swiper-testimonials', {
     clickable: true,
   },
 });
+
+// Fechar menu ao clicar fora
+document.addEventListener('click', function(event) {
+  const mobileNav = document.querySelector('.mobile-nav');
+  const menuToggle = document.querySelector('.menu-toggle');
+  
+  if (!event.target.closest('.mobile-nav') && 
+      !event.target.closest('.menu-toggle') &&
+      mobileNav.classList.contains('active')) {
+    mobileNav.classList.remove('active');
+    menuToggle.classList.remove('active');
+    menuToggle.setAttribute('aria-expanded', 'false');
+  }
+});
