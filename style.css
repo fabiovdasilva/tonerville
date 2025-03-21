@@ -757,28 +757,26 @@
   }
   /* WhatsApp */
   .whatsapp-float {
-  position: fixed;
-  bottom: 20px;
-  left: 80%;
-  transform: translateX(-50%);
-  background: #25D366;
-  color: white;
-  padding: 12px 24px;
-  border-radius: 30px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  text-decoration: none;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  width: max-content;
-  z-index: 999;
-  transition: all 0.3s ease;
+    position: fixed;
+    bottom: 20px;
+    right: 20px; /* Alinhado à direita */
+    background: #25D366;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    z-index: 999;
+    transition: all 0.3s ease;
   }
 
   /* Efeito hover */
 .whatsapp-float:hover {
   background: #128C7E;
-  transform: translateX(-50%) scale(1.05);
+  transform: translateX(-10%) scale(1.05);
 }
 
  /* MOBILE OVERRIDES (max-width: 768px) */
@@ -905,20 +903,9 @@
     flex-direction: column;
     padding: 0 1rem;
   }
-
-  .eco-benefits {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.8rem;
-    width: 100%;
+  .economia-section {
+    padding: 4rem 0rem 4rem 0rem;
   }
-  
-  .benefits-list {
-    display: grid;
-    grid-template-columns: 1fr !important; /* Força 1 coluna */
-    gap: 1rem;
-  }
-
   .card{
     padding: 0.5rem;
     margin: 0;
@@ -1018,17 +1005,21 @@
 
   /* WhatsApp */
   .whatsapp-float {
-    left: 50% !important;
-    bottom: 10px;
-    padding: 8px 16px;
-    transform: translateX(-50%) scale(0.9);
-    width: 90%;
-    max-width: 280px;
-    justify-content: center;
+    padding: 12px; /* Circular */
+    right: 15px;
+    bottom: 15px;
+  }
+  .texto-whatsapp {
+    display: none; /* Esconde o texto */
+  }
+  
+  .whatsapp-float:hover {
+    background: #128C7E;
+  transform: scale(1.05);
   }
 
-  .whatsapp-float:hover {
-    transform: translateX(-50%) scale(0.95);
+  .whatsapp-float:active {
+    transform: scale(0.95);
   }
 
   /* Menu Hamburguer Animado */
