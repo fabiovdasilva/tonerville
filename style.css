@@ -855,17 +855,6 @@
   }
 
   /* Serviços */
-  .services-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-  }
-
-  .service-card:nth-child(3) {
-    grid-column: span 2;
-    width: calc(50% - 0.5rem);
-    margin: 0 auto;
-  }
-
   .service-card {
     padding: 1.5rem;
     margin: 0 auto;
@@ -900,15 +889,16 @@
 
   /* Economia - Novo Layout */
   .eco-container {
-    flex-direction: column;
+    flex-direction: column-reverse;
     padding: 0 1rem;
+    gap: 0;
   }
   .economia-section {
     padding: 4rem 0rem 4rem 0rem;
   }
   .card{
     padding: 0.5rem;
-    margin: 0;
+    margin-top: 1.2rem;
   }
 
   .card-title {
@@ -916,7 +906,9 @@
   }
 
   .eco-benefits {
+    flex-direction: column;
     flex: auto;
+    align-items: center;
     padding: 0;
   }
 
@@ -926,8 +918,7 @@
     padding: 1.2rem !important;
     font-size: 0.9rem;
     line-height: 1.4;
-    word-break: break-word; /* Quebra de texto seguro */
-    margin: 0 auto;
+    margin: 2rem;
     box-sizing: border-box;
   }
 
@@ -942,7 +933,7 @@
   }
 
   .eco-calculator {
-    width: 100%;
+    width: fit-content;
     max-width: 100%;
     margin-top: 1rem;
     padding: 1.5rem;
@@ -969,7 +960,7 @@
   }
 
   .counter h3 {
-    font-size: 2rem;
+    font-size: 3rem;
   }
 
   /* Parceiros */
@@ -982,7 +973,7 @@
   }
 
   #hp {
-    max-width: 50px !important; /* Logo HP menor */
+    max-width: 50% !important; /* Logo HP menor */
   }
 
   /* Contato */
@@ -1091,28 +1082,6 @@
 }
 
 
- /* Seção Economia */
- .eco-container {
-  flex-direction: column;
-}
-
-.eco-benefits {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
-}
-
-.benefit-card {
-  flex: 1 1 48%;
-  max-width: 48%;
-}
-
-.eco-calculator {
-  width: 100%;
-  max-width: 100%;
-  order: 2;
-}
-
 /* Counters Section */
 .counters-container {
   flex-wrap: wrap;
@@ -1136,7 +1105,7 @@
     }
 
     .section-title {
-      font-size: 1.5rem;
+      font-size: 2rem;
     }
 
     .service-card,
