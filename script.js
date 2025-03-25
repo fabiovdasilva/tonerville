@@ -226,51 +226,47 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-let carouselInterval = null;
-let currentService = 0;
-let isAutoPlaying = false;
-let observer;
+// Variáveis globais necessárias
 let openService = null;
-let pauseTimeout = null;
-const PAUSE_DURATION = 30000;
-const CAROUSEL_INTERVAL = 5000;
-const section = document.querySelector('#servicos');
 
+// Função principal para abrir/fechar serviços
 function toggleService(serviceNumber) {
   const service = document.querySelector(`.service-item:nth-child(${serviceNumber})`);
   const content = service.querySelector('.service-content');
   const imageContainer = document.querySelector('.service-image-container');
   const imageUrl = content.dataset.image;
 
-  // Não fecha se já é o único aberto
+  // Não permite fechar o último serviço aberto
   if (content.style.maxHeight && isOnlyServiceOpen(serviceNumber)) return;
 
-  stopCarousel();
-  section.classList.remove('auto-play-active');
-
-  // Fecha apenas se não for o último aberto
+  // Fecha outros serviços se estiver abrindo um novo
   if (!content.style.maxHeight) {
     closeOtherServices(serviceNumber);
   }
 
+  // Alterna estado do serviço clicado
   content.style.maxHeight = content.style.maxHeight ? null : content.scrollHeight + "px";
   service.querySelector('.toggle-icon').textContent = content.style.maxHeight ? '▲' : '▼';
-  
+
+  // Atualiza imagem e estado
   if (content.style.maxHeight) {
     imageContainer.style.backgroundImage = `url('${imageUrl}')`;
     imageContainer.classList.add('active');
     openService = service;
-  } 
-
-  if (pauseTimeout) clearTimeout(pauseTimeout);
-  pauseTimeout = setTimeout(startCarousel, PAUSE_DURATION);
+  } else {
+    // Se fechado, abre o próximo serviço automaticamente
+    const nextService = serviceNumber % 3 + 1;
+    toggleService(nextService);
+  }
 }
 
+// Verifica se é o único serviço aberto
 function isOnlyServiceOpen(serviceNumber) {
   const openCount = document.querySelectorAll('.service-content[style*="max-height"]').length;
   return openCount === 1 && document.querySelector(`.service-item:nth-child(${serviceNumber}) .service-content[style*="max-height"]`);
 }
 
+// Fecha outros serviços mantendo pelo menos um aberto
 function closeOtherServices(serviceToKeep) {
   document.querySelectorAll('.service-item').forEach((service, index) => {
     if (index + 1 !== serviceToKeep) {
@@ -281,86 +277,23 @@ function closeOtherServices(serviceToKeep) {
   });
 }
 
-function initServiceCarousel() {
-  const services = document.querySelectorAll('.service-item');
-  
-  // Garante que o primeiro está aberto inicialmente
+// Inicialização - Garante que o primeiro serviço está aberto
+document.addEventListener('DOMContentLoaded', () => {
   if (!document.querySelector('.service-content[style*="max-height"]')) {
     toggleService(1);
   }
-
-  observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        startCarousel();
-        currentService = 0;
-      } else {
-        stopCarousel();
-        resetServices();
-        clearTimeout(pauseTimeout);
-      }
-    });
-  }, { threshold: 0.5 });
-
-  observer.observe(section);
-
-  services.forEach((service, index) => {
-    service.addEventListener('click', () => {
-      if (isAutoPlaying) {
-        stopCarousel();
-        section.classList.remove('auto-play-active');
-      }
-      currentService = index;
-    });
-  });
-}
-
-function startCarousel() {
-  const services = document.querySelectorAll('.service-item');
-  
-  section.classList.add('auto-play-active');
-  isAutoPlaying = true;
-  
-  carouselInterval = setInterval(() => {
-    closeAllServices();
-    
-    services[currentService].querySelector('.service-header').click();
-    
-    currentService = (currentService + 1) % services.length;
-  }, CAROUSEL_INTERVAL);
-}
-
-function stopCarousel() {
-  clearInterval(carouselInterval);
-  isAutoPlaying = false;
-}
-
-function resetServices() {
-  currentService = 0;
-  closeOtherServices(1); // Mantém o primeiro aberto
-  setTimeout(() => {
-    section.classList.remove('auto-play-active');
-  }, 1000);
-}
-
-function closeAllServices() {
-  document.querySelectorAll('.service-content').forEach(content => {
-    content.style.maxHeight = null;
-  });
-  document.querySelectorAll('.toggle-icon').forEach(icon => {
-    icon.textContent = '▼';
-  });
-}
-
-// Inicialização
-document.addEventListener('DOMContentLoaded', () => {
-  initServiceCarousel();
 });
 
-// Inicialização garantindo pelo menos um aberto
-document.addEventListener('DOMContentLoaded', () => {
-  if (!document.querySelector('.service-content[style*="max-height"]')) {
-    toggleService(1);
-  }
-  initServiceCarousel();
+// Controle do menu mobile (mantido caso exista em outras partes do código)
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    if (window.innerWidth <= 768) {
+      const mobileNav = document.querySelector('.mobile-nav');
+      const menuToggle = document.querySelector('.menu-toggle');
+      if (mobileNav && mobileNav.classList.contains('active')) {
+        mobileNav.classList.remove('active');
+        menuToggle.classList.remove('active');
+      }
+    }
+  });
 });
