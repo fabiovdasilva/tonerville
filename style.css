@@ -224,45 +224,127 @@
   .cta-button:hover {
     transform: translateY(-3px);
   }
-  /* Serviços */
+
+  /* Estilos Gerais */
   .services-section {
-    padding: 6rem 2rem;
-    background: white;
-  }
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 4rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
-  .service-card {
-    padding: 2rem;
-    border-radius: 10px;
-    background: var(--light-gray);
+  
+  .services-section .section-title {
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  .service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  }
-  /* Demonstração de Produto: Impressoras */
-  .product-demo {
-    padding: 4rem 2rem;
-    text-align: center;
-    background: white;
-  }
-  .product-demo img {
-    max-width: 300px;
+    margin-bottom: 3rem;
     width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  }
+
+  .services-content-wrapper {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+  .service-body{
+    padding: 2rem;
+  }
+  .services-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .service-item {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .service-header {
+    padding: 1.5rem;
+    background: var(--primary-color);
+    color: white;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .service-header:hover {
+    background: #12243d;
+  }
+  
+  .service-header.active .toggle-icon {
+    transform: rotate(180deg);
+  }
+  
+  .toggle-icon {
+    transition: transform 0.3s ease;
+  }
+  
+  .service-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .service-image-container {
+    position: sticky;
+    top: 120px;
+    height: 500px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    background-size: cover;
+    background-position: center;
     opacity: 0;
-    transform: translateY(20px);
-    transition: var(--transition);
+    transform: translateX(30px);
+    transition: all 0.6s ease;
+  }
+  
+  .service-image-container.active {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .auto-play-active .service-header {
+    pointer-events: none; /* Desabilita cliques durante auto-play */
+  }
+  
+  .auto-play-active .service-header.active {
+    pointer-events: auto; /* Permite clicar no item ativo */
+  }
+
+  .service-item.paused {
+    transform: scale(1.02);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  }
+  
+  .auto-play-paused .service-image-container {
+    filter: brightness(1.1);
+    transform: translateX(0) scale(1.02);
+  }
+  
+  .whatsapp-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    background: #25D366;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+  }
+  
+  .whatsapp-button:hover {
+    background: #128C7E;
+    transform: translateY(-2px);
   }
   /* História */
   .history-section {
@@ -861,6 +943,21 @@
     width: 100%;
   }
 
+  .services-section {
+    grid-template-columns: 1fr;
+  }
+  
+  .service-image-container {
+    position: relative;
+    top: auto;
+    height: 300px;
+    order: 2;
+    margin-top: 2rem;
+  }
+
+  .services-content-wrapper {
+    grid-template-columns: 1fr;
+  }
   /* História */
   .history-content {
     flex-direction: column;
@@ -1161,6 +1258,7 @@
     overflow-x: hidden;
   }
 }
+
 
 /* Ajuste para telas muito pequenas */
 @media (max-width: 360px) {

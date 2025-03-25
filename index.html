@@ -60,29 +60,81 @@
       </div>
     </section>
 
-    <!-- Serviços -->
+    <!-- Servicos -->
     <section class="services-section" id="servicos">
       <h2 class="section-title">Nossos Serviços</h2>
-      <div class="services-grid">
-        <div class="service-card">
-          <i class="fas fa-print fa-3x" style="color: var(--secondary-color);"></i>
-          <h3>Outsourcing de Impressão</h3>
-          <p>Analise e venda de equipamentos compativeis com a sua demanda e necessidade.</p>
+      <div class="services-content-wrapper">
+      <div class="services-accordion">
+        
+        <!-- Item 1 -->
+        <div class="service-item">
+          <div class="service-header" onclick="toggleService(1)">
+            <div>
+              <i class="fas fa-print"></i>
+              <h3>Outsourcing de Impressão</h3>
+            </div>
+            <span class="toggle-icon">▼</span>
+          </div>
+          <div class="service-content" data-image="images/canon-impressora.jpg">
+            <div class="service-body">
+              <p>Análise e venda de equipamentos compatíveis com a sua demanda e necessidade.</p>
+              <a href="https://wa.me/SEUNUMERO" class="whatsapp-button">
+                <i class="fab fa-whatsapp"></i>
+                Solicitar Orçamento
+              </a>
+            </div>
+          </div>
         </div>
-        <div class="service-card">
-          <i class="fas fa-box-open fa-3x" style="color: var(--secondary-color);"></i>
-          <h3>Venda de Insumos Para Impressao</h3>
-          <p>Tinta, Toners e Papeis. <br> Todos produtos da mais alta qualidade e preços competitivos para todos os modelos.</p>
+    
+        <!-- Item 2 -->
+        <div class="service-item">
+          <div class="service-header" onclick="toggleService(2)">
+            <div>
+              <i class="fas fa-box-open"></i>
+              <h3>Venda de Insumos</h3>
+            </div>
+            <span class="toggle-icon">▼</span>
+          </div>
+          <div class="service-content" data-image="images/insumo-impressora.jpg">
+            <div class="service-body">
+              <p>Tintas, toners e papeis de alta qualidade para todos os modelos.</p>
+              <a href="https://wa.me/SEUNUMERO" class="whatsapp-button">
+                <i class="fab fa-whatsapp"></i>
+                Consultar Produtos
+              </a>
+            </div>
+          </div>
         </div>
-        <div class="service-card">
-          <i class="fas fa-tools fa-3x" style="color: var(--secondary-color);"></i>
-          <h3>Manutenção de Impressoras</h3>
-          <p>Serviço especializado para manter suas impressoras sempre operacionais.</p>
+    
+        <!-- Item 3 -->
+        <div class="service-item">
+          <div class="service-header" onclick="toggleService(3)">
+            <div>
+              <i class="fas fa-tools"></i>
+              <h3>Manutenção</h3>
+            </div>
+            <span class="toggle-icon">▼</span>
+          </div>
+          <div class="service-content" data-image="images/manutencao-impressora.jpg">
+            <div class="service-body">
+              <p>Serviço especializado para manter suas impressoras operacionais.</p>
+              <a href="https://wa.me/SEUNUMERO" class="whatsapp-button">
+                <i class="fab fa-whatsapp"></i>
+                Agendar Visita
+              </a>
+            </div>
+          </div>
         </div>
-        </div>
+    
       </div>
-      
+    
+      <!-- Container de Imagem -->
+      <div class="service-image-container"></div>
+    </div>
     </section>
+    
+
+
     <!-- Números -->
     <section class="counters-section" id="numeros">
       <h2 class="section-title">Nossos Números</h2>
