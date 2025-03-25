@@ -830,7 +830,7 @@
   }
   /* Seções */
   section {
-    padding: 1.5rem 0;
+    padding: 4rem 1rem !important; 
     scroll-margin-top: 80px;
   }
 
@@ -879,6 +879,10 @@
   /* Depoimentos */
   .testimonials-section .container {
     padding: 0 1rem;
+  }
+
+  .swiper-container.swiper-testimonials {
+  padding-top: 0px;
   }
 
   .swiper-slide {
