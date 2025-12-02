@@ -139,30 +139,8 @@ var swiperPartners = new Swiper('.swiper-partners', {
   }
 });
 
- // Calculadora de Economia: 35% de economia
- document.getElementById('eco-btn-calc').addEventListener('click', () => {
-    const pages = +document.getElementById('eco-pages').value;
-    const resultEl = document.getElementById('eco-calc-result');
-    
-    if (!pages) {
-      resultEl.innerText = "Informe a quantidade de páginas.";
-      return;
-    }
-    
-    const costCurrent = 0.30;
-    const costOutsourced = costCurrent * 0.65; // 35% de economia
-    const savingPerPage = costCurrent - costOutsourced;
-    const totalSaving = pages * savingPerPage;
-    
-    resultEl.innerText = `Estimativa: R$ ${totalSaving.toFixed(2)} por mês.`;
-  });
 
-/* Envio do formulário (simulação) */
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-  this.reset();
-  alert('Mensagem enviada com sucesso! Retornaremos em até 24h.');
-});
+
 
 /*carrossel 3D com Swiper*/
 var swiperTestimonials = new Swiper('.swiper-testimonials', {

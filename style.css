@@ -168,7 +168,7 @@
     content: '◈';
     color: var(--secondary-color);
     position: absolute;
-    padding: 3rem;
+    padding: 3.5rem;
     left: 50%;
     transform: translateX(-50%);
     font-size: 1.5rem;
@@ -626,6 +626,7 @@
     border-radius: 10px;
     display: flex;
     flex-direction: row;
+    justify-content: center;
   }
   .eco-benefits .benefits-heading {
     font-size: 2rem;
@@ -665,9 +666,9 @@
   width: 100%;
 }
 .partners-container {
-  max-width: 1200px;
+  width: auto;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 4rem;
 }
 .partners-header {
   display: flex;
@@ -720,8 +721,8 @@
  /* Carrossel (Swiper) */
  .swiper-container.swiper-partners {
   flex: 1;
-  margin-left: 1rem;
   height: 100px;
+  justify-content: center;
 }
 .swiper-partners .swiper-wrapper {
   display: flex;
@@ -736,11 +737,16 @@
 
 /* Logos em branco inicialmente */
 .brand-logo {
-  max-width: 120px;  /* Ajuste conforme desejar */
+  max-width: 150px;  /* Ajuste conforme desejar */
   width: 100%;
   height: auto;
   transition: filter 0.3s ease;
   filter: brightness(0) invert(1); /* Exibe em branco */
+}
+
+.img#hp.brnad-logo{
+max-width: 110px;
+
 }
 
 /* Ao passar o mouse ou se quiser exibir cor no slide ativo */
@@ -1073,9 +1079,6 @@
     max-width: 70px;
   }
 
-  #hp {
-    max-width: 50% !important; /* Logo HP menor */
-  }
 
   /* Contato */
   .contact-form {
