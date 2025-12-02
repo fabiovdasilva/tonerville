@@ -737,14 +737,14 @@
 
 /* Logos em branco inicialmente */
 .brand-logo {
-  max-width: 150px;  /* Ajuste conforme desejar */
+  max-width: 200px;  /* Ajuste conforme desejar */
   width: 100%;
   height: auto;
   transition: filter 0.3s ease;
   filter: brightness(0) invert(1); /* Exibe em branco */
 }
 
-.img#hp.brnad-logo{
+.img#hp.brand-logo{
 max-width: 110px;
 
 }
