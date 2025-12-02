@@ -732,7 +732,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 5px; /* Gap total de 10px entre slides */
+  /*margin: 0 5px; /* Gap total de 10px entre slides */
 }
 
 /* Logos em branco inicialmente */
@@ -1300,6 +1300,8 @@ max-width: 110px;
   img[alt="Brother"] {
     height: 35px !important;
   }
+
+  
 
 
 
