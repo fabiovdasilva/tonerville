@@ -275,3 +275,24 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     }
   });
 });
+
+/* No final do arquivo script.js */
+var swiperPartners = new Swiper('.swiper-partners', {
+  centeredSlides: true,
+  spaceBetween: 10,
+  slidesPerView: 4, // Padrão para desktop
+  loop: true,
+  autoplay: {
+    delay: 2500,
+    disableOnInteraction: false,
+  },
+  // ALTERAR AQUI:
+  breakpoints: {
+    // Telas pequenas (celular): MOSTRAR APENAS 1
+    320: { slidesPerView: 1 },
+    // Tablets: mostrar 3
+    768: { slidesPerView: 3 },
+    // Desktop: mostrar 4
+    1024: { slidesPerView: 4 }
+  }
+});

@@ -1276,5 +1276,32 @@ max-width: 110px;
   .counter h3 {
     font-size: 1.8rem !important;
   }
+
+  .swiper-container.swiper-partners {
+     height: 80px; /* Altura total da área do carrossel no mobile */
+  }
+
+  /* Reduzimos a altura geral para mobile */
+  .brand-logo {
+    height: 50px !important; /* Força uma altura menor no celular */
+    max-width: 80%; /* Garante que não estoure a largura da tela */
+  }
+  
+  /* Ajustes finos para os logos que ficam muito grandes ou pequenos */
+  img[alt="Epson"] {
+    height: 25px !important; /* Epson menorzinho no mobile */
+  }
+  
+  img[alt="Hp"], img[alt="HP"] {
+    height: 40px !important; /* HP num tamanho bom */
+    margin-top: 5px;
+  }
+  
+  img[alt="Brother"] {
+    height: 35px !important;
+  }
+
+
+
 }
 
