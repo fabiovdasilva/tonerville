@@ -355,6 +355,50 @@
     padding: 4rem 2rem;
     height: auto;
   }
+  /* =========================================
+   NOVA SEÇÃO QUEM SOMOS
+   ========================================= */
+
+.quem-somos-section {
+  background-color: var(--light-gray); /* Fundo levemente cinza */
+  padding: 6rem 2rem;
+  text-align: center; /* Centraliza tudo */
+}
+
+/* O container do texto */
+.quem-somos-content {
+  max-width: 900px; /* Largura máxima para não ficar muito esticado em telas grandes */
+  margin: 0 auto;   /* Centraliza o bloco na tela */
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;      /* Espaço entre os parágrafos */
+}
+
+/* Estilo dos parágrafos */
+.quem-somos-content p {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: var(--dark-gray);
+  margin: 0;
+}
+
+/* Destaque em negrito (Azul da marca) */
+.quem-somos-content strong {
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+/* Caixa de destaque da Missão */
+.missao-box {
+  margin-top: 2rem;
+  background: #fff;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* Sombra suave */
+  border-left: 5px solid var(--secondary-color); /* Linha dourada na esquerda */
+  position: relative;
+}
+  
    /* Conteúdo em duas colunas */
   .history-content {
     position: relative;
@@ -964,21 +1008,7 @@ max-width: 110px;
   .services-content-wrapper {
     grid-template-columns: 1fr;
   }
-  /* História */
-  .history-content {
-    flex-direction: column;
-    padding: 0 1rem;
-  }
-
-  .history-text {
-    padding-right: 0;
-    margin-bottom: 2rem;
-  }
-
-  .history-text h2 {
-    font-size: 1.8rem;
-  }
-
+  
   /* Depoimentos */
   .testimonials-section .container {
     padding: 0 1rem;
@@ -1202,6 +1232,19 @@ max-width: 110px;
   margin-top: 2rem;
 }
 
+.quem-somos-section {
+    padding: 4rem 1.5rem;
+  }
+  
+  .quem-somos-content p {
+    font-size: 1rem;
+    text-align: justify; /* No celular, justificado pode ficar melhor para leitura */
+  }
+  
+  .missao-box {
+    padding: 1.5rem;
+  }
+
   /* Ajustes específicos para telas pequenas */
   @media (max-width: 480px) {
     .hero h1 {
@@ -1260,6 +1303,8 @@ max-width: 110px;
   .history-content {
     overflow-x: hidden;
   }
+
+  
 }
 
 
