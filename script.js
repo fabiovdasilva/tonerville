@@ -296,3 +296,93 @@ var swiperPartners = new Swiper('.swiper-partners', {
     1024: { slidesPerView: 4 }
   }
 });
+
+/* ==========================================
+     ACORDEÃO DE SERVIÇOS (COM AUTO-PLAY)
+     ========================================== */
+  
+  let serviceInterval;     // Variável para controlar o timer
+  let currentService = 1;  // Começa no serviço 1
+  const totalServices = 3; // Total de serviços
+
+  // Função principal de abrir/fechar
+  window.toggleService = function(serviceNumber) {
+    // Atualiza a variável global para o serviço atual
+    currentService = serviceNumber;
+
+    const service = document.querySelector(`.service-item:nth-child(${serviceNumber})`);
+    if (!service) return;
+
+    const content = service.querySelector('.service-content');
+    const imageContainer = document.querySelector('.service-image-container');
+    const imageUrl = content.dataset.image;
+
+    // 1. Fecha TODOS os outros serviços
+    document.querySelectorAll('.service-item').forEach((item, index) => {
+      // Se não for o item clicado/selecionado
+      if (index + 1 !== serviceNumber) {
+        const c = item.querySelector('.service-content');
+        const icon = item.querySelector('.toggle-icon');
+        const header = item.querySelector('.service-header');
+        
+        if(c) c.style.maxHeight = null; // Recolhe
+        if(icon) icon.textContent = '▼';
+        if(header) header.classList.remove('active'); // Remove destaque
+      }
+    });
+
+    // 2. Abre o serviço atual (se já não estiver aberto)
+    const icon = service.querySelector('.toggle-icon');
+    const header = service.querySelector('.service-header');
+    
+    // Força a abertura (sem toggle de fechar) para garantir a rotação fluida
+    content.style.maxHeight = content.scrollHeight + "px";
+    icon.textContent = '▲';
+    header.classList.add('active');
+    
+    // Atualiza a imagem lateral
+    if (imageContainer && imageUrl) {
+      imageContainer.style.backgroundImage = `url('${imageUrl}')`;
+      imageContainer.classList.add('active');
+    }
+  };
+
+  // --- LÓGICA DO AUTO-PLAY ---
+
+  function startServiceRotation() {
+    // Garante que não tenha dois timers rodando
+    if (serviceInterval) clearInterval(serviceInterval);
+    
+    serviceInterval = setInterval(() => {
+      // Calcula o próximo: 1 -> 2 -> 3 -> volta para 1
+      let nextService = (currentService % totalServices) + 1;
+      window.toggleService(nextService);
+    }, 4000); // 4000ms = 4 segundos
+  }
+
+  function stopServiceRotation() {
+    if (serviceInterval) {
+      clearInterval(serviceInterval);
+      serviceInterval = null; // Limpa a variável
+    }
+  }
+
+  // Inicialização
+  setTimeout(() => {
+    // Abre o primeiro serviço
+    window.toggleService(1);
+    // Inicia a rotação automática
+    startServiceRotation();
+  }, 500);
+
+  // --- INTERATIVIDADE ---
+  
+  // Se o usuário clicar em qualquer serviço, paramos a rotação automática
+  // para ele poder ler com calma.
+  document.querySelectorAll('.service-header').forEach(header => {
+    header.addEventListener('click', () => {
+      stopServiceRotation();
+    });
+  });
+
+ // Fim do DOMContentLoaded
